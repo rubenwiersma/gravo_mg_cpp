@@ -21,3 +21,20 @@ Eigen::SparseMatrix<double> lhs;
 Eigen::MatrixXd rhs, x;
 solver->solve(lhs, rhs, x);
 ```
+
+## Citations
+Please cite our paper if this code contributes to an academic publication:
+
+```bib
+@Article{WiersmaNasikun2023GravoMG,
+author = {Ruben Wiersma, Ahmad Nasikun, Elmar Eisemann, Klaus Hildebrandt},
+journal = {SIGGRAPH 2023},
+title = {A Fast Geometric Multigrid Method for Curved Surfaces},
+year = {2023},
+month = jul,
+number = {4},
+volume = {41},
+doi = {10.1145/3588432.3591502},
+publisher = {ACM}
+}
+```
