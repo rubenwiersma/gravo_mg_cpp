@@ -1,4 +1,8 @@
 # Gravo MG C++ library
+[[Paper]](https://graphics.tudelft.nl/~klaus/papers/Gravo_MG.pdf) [[Project page]](https://rubenwiersma.nl/gravomg)
+
+![](https://rubenwiersma.nl/assets/img/publications/gravomg/teaser_gravomg.png)
+
 C++ library implementing Gravo MG. Gravo MG is a Geometric Multigrid Method for solving linear systems on curved surfaces. For more information, check out our [project page](https://rubenwiersma.nl/gravomg).
 
 ## Linking in CMake
