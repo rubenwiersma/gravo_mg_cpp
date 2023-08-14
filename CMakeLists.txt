@@ -45,3 +45,8 @@ SET(HEADER_FILES
 add_library(gravomg ${SRC_FILES} ${HEADER_FILES})
 target_link_libraries(gravomg PUBLIC Eigen3::Eigen)
 target_include_directories(gravomg PUBLIC include)
+
+# Conditionally add the -fPIC flag for shared library on supported platforms
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64" OR CMAKE_SYSTEM_PROCESSOR MATCHES "amd64")
+    target_compile_options(gravomg PRIVATE $<$<CXX_COMPILER_ID:GNU>:-fPIC>)
+endif()
