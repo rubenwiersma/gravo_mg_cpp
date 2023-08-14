@@ -15,7 +15,7 @@ target_link_libraries(project_name PRIVATE gravomg)
 ## Usage
 Create the solver and construct a hierarchy:
 ```cpp
-MGBS::MultigridSolver(positions, neighbors, mass)
+GravoMG::MultigridSolver(positions, neighbors, mass)
 solver->buildHierarchy();
 ```
 

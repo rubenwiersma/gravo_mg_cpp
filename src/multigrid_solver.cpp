@@ -2,18 +2,17 @@
 #include "gravomg/multigrid_solver.h"
 #include "gravomg/utility.h"
 
-#include <igl/invert_diag.h>
-
 #include <cmath>
 
 #include <Eigen/Eigenvalues>
 
-namespace MGBS {
+namespace GravoMG {
 	/* Constructor */
 	MultigridSolver::MultigridSolver(
 		Eigen::MatrixXd& V, Eigen::MatrixXi& neigh, Eigen::SparseMatrix<double>& M) : 
 		V(V), neigh(neigh), M(M) {
-		igl::invert_diag(M, Minv);
+		Minv = (Eigen::SparseMatrix<double>) M.diagonal().cwiseInverse().asDiagonal();
+
 		V0 = V;
 		hierarchyTiming["n_vertices"] = V.rows();
 	}

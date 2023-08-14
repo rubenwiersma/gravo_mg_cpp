@@ -1,11 +1,9 @@
 #include "gravomg/utility.h"
 
-#include <igl/doublearea.h>
-
 #include <fstream>
 
 
-namespace MGBS {
+namespace GravoMG {
 	void scaleMesh(Eigen::MatrixXd& V, const Eigen::MatrixXi& F, double scaleRatio)
 	{
 		//cout << "> Scaling the mesh to have a unit length \n";
@@ -50,24 +48,6 @@ namespace MGBS {
 			length(i) = maxV(i) - minV(i);
 		}
 		maxVal = length.maxCoeff();
-	}
-
-	void normalize_unit_area(Eigen::MatrixXd& V, const Eigen::MatrixXi& F)
-	{
-		Eigen::VectorXd FA;
-		igl::doublearea(V, F, FA);
-
-		double scale = sqrt(FA.sum() / 2);
-		V /= scale;
-				
-		V.col(0) = V.col(0).array() - V.col(0).mean();
-		V.col(1) = V.col(1).array() - V.col(1).mean();
-		//V.col(2) = V.col(2).array() - V.col(2).minCoeff();
-		V.col(2) = V.col(2).array() - V.col(2).mean();
-
-		std::cout << "Check mass matrix after normalization \n";
-		igl::doublearea(V, F, FA);
-		std::cout << "Area: " << FA.sum() / 2 << " and M(0,0)=" << FA(0) / 2 << std::endl;
 	}
 
 }

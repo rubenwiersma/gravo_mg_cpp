@@ -14,9 +14,8 @@
 
 using namespace std;
 
-namespace MGBS {
+namespace GravoMG {
 	void scaleMesh(Eigen::MatrixXd& V, const Eigen::MatrixXi& F, double scaleRatio = 1.0);
-	void normalize_unit_area(Eigen::MatrixXd& V,const Eigen::MatrixXi& F);
 }
 
 #endif // !UTILITY_H

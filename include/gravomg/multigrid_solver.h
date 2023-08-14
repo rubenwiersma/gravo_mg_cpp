@@ -2,6 +2,8 @@
 #define MULTIGRIDSOLVER_H
 
 #include <queue>
+#include <vector>
+
 #include "utility.h"
 
 /* Data structure for Priority Queue */
@@ -25,7 +27,7 @@ enum Weighting {
 	INVDIST = 2
 };
 
-namespace MGBS {
+namespace GravoMG {
 	class MultigridSolver
 	{
 	public:
@@ -61,7 +63,7 @@ namespace MGBS {
 		Eigen::MatrixXd						V0;							//!< Original coordinates of each vertex
 		Eigen::MatrixXd						normals;
 		Eigen::SparseMatrix<double>			M;							//!<mass matrix to use>
-		Eigen::SparseMatrix<double>			Minv;						//!<inverse mass matrix to use>
+		Eigen::SparseMatrix<double>			Minv;							//!<inverse mass matrix to use>
 		std::vector<Eigen::MatrixXd> 		levelV;
 		std::vector<Eigen::MatrixXi> 		levelE;
 		std::vector<std::vector<int>>		noTriFoundMap;
@@ -85,7 +87,6 @@ namespace MGBS {
 		std::vector<std::vector<size_t>>				PointsToSampleMaps;             
 		int									cycleType = 0;								//0: V-cycle, 1: F-cycle, 2: W-cycle
 		int									factorizationType = 0;						//0: LLT,	1: LDLT  
-		int									neighborhoodConstruction = 0;				//0: regular knns,		1: from operator, no trimming,		2: from operator, trimming,		3: from operator (no expansion),	4: from extension data (cluster of the neighbor of the boundary)
 		bool                                isSmootherGaussSeidel;
 		bool                                isGVDTwoRings;
 		bool								isClusterExpanded;
