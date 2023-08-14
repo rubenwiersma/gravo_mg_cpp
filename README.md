@@ -9,7 +9,7 @@ C++ library implementing Gravo MG. Gravo MG is a Geometric Multigrid Method for 
 You can add this library to your project by simply including the files in your folder for dependencies (e.g., by using git submodules or CMake fetch content) and then adding the subdirectory to your CMake file:
 ```cmake
 add_subdirectory(deps/gravomg)
-target_link_libraries(project_name PRIVATE gravomg)
+target_link_libraries([project_name] PRIVATE gravomg)
 ```
 
 ## Usage
