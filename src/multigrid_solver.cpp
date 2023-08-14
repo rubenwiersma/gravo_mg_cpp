@@ -356,7 +356,9 @@ namespace GravoMG {
 						bool edgeFound = false;
 						double minEdge = std::numeric_limits<double>::max();
 						int minEdgeIdx = 0;
-						for (const auto& [key, value] : insideEdge) {
+						for (const auto& element : insideEdge) {
+							const auto& key = element.first;
+							const auto& value = element.second;
 							if (value >= 0. && value < minEdge) {
 								edgeFound = true;
 								minEdge = value;
