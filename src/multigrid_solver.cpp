@@ -3,6 +3,8 @@
 #include "gravomg/utility.h"
 
 #include <cmath>
+#include <numeric>
+#include <chrono>
 
 #include <Eigen/Eigenvalues>
 
